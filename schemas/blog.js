@@ -19,7 +19,7 @@ const blogSchema = new Schema({
     type: Number,
     default: 0,
   },
-  comments: [{ comment: String }],
+  comments: [{ type: String }],
 });
 
 module.exports = mongoose.model("blog", blogSchema);

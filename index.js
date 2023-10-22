@@ -6,7 +6,7 @@ const session = require("express-session");
 //Routes import
 const blogRoute = require("./routes/blogRoute");
 const userRoute = require("./routes/userRoute");
-
+const commentRoute = require("./routes/commentRoute");
 const app = express();
 module.exports = app;
 // CONFIGURATIONS
@@ -24,6 +24,7 @@ mongoose
 // ROUTES
 app.use("/api", blogRoute);
 app.use("/api", userRoute);
+app.use("/api", commentRoute);
 
 app.listen(4000, () => {
   console.log("on port 3000!!!");
