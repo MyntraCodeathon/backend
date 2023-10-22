@@ -8,8 +8,8 @@ const userSchema = new Schema({
   password: {
     type: String,
   },
-  interests: [{ interest: String }],
-  following: [{ following: String }],
+  interests: [],
+  following: [],
   tokens: {
     type: Number,
     default: 0,
