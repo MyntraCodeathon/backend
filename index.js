@@ -8,6 +8,7 @@ const blogRoute = require("./routes/blogRoute");
 const userRoute = require("./routes/userRoute");
 
 const app = express();
+module.exports = app;
 // CONFIGURATIONS
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing (form data) i.e. application/x-www-form-urlencoded//this is the middleware we talked about using req.body
 app.use(bodyParser.json());
