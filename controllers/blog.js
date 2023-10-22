@@ -48,7 +48,7 @@ exports.getBlogByFollowing = async (req, res) => {
         }
       }
     }
-    res.status(200).send(result);
+    res.status(200).json(result);
   } catch (e) {
     return res.status(400).send({ msg: e.message });
   }
