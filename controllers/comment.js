@@ -1,7 +1,7 @@
 const Comment = require("../schemas/comment");
 const Blog = require("../schemas/blog");
 const User = require("../schemas/user");
-
+//nothing
 exports.addComment = async (req, res) => {
   try {
     const { blogId, content } = req.body;
