@@ -8,6 +8,6 @@ commentRoute.use(express.json());
 commentRoute.use(bodyParser.urlencoded({ extended: true }));
 //routes
 
-commentRoute.post("/addComment", isUserLoggedIn, addComment);
+commentRoute.post("/addComment", addComment);
 
 module.exports = commentRoute;

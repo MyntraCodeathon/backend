@@ -22,13 +22,13 @@ exports.signIn = async (req, res) => {
   const { emailId, password } = req.body;
   const checkUser = await User.findOne({ emailId: emailId });
   if (checkUser.password == password) {
-    // console.log(checkUser._id);
     req.session.userId = checkUser._id;
-    res.status(200).send("success");
+    res.status(200).json({ message: "success" }); // Send a valid JSON response
   } else {
-    res.send("error");
+    res.status(400).json({ message: "error" }); // Send a valid JSON response for error case
   }
 };
+
 //follow routes
 exports.followUser = async (req, res) => {
   console.log(req.session.userId);

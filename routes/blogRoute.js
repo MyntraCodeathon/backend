@@ -17,7 +17,7 @@ const blogRoute = express();
 blogRoute.use(express.json());
 blogRoute.use(bodyParser.urlencoded({ extended: true }));
 
-blogRoute.post("/create", isUserLoggedIn, upload.array("images"), postBlog);
+blogRoute.post("/create", upload.array("images"), postBlog);
 blogRoute.get("/blog/:id", getSingleBlog);
 blogRoute.delete("/blog/:id", isUserLoggedIn, deleteBlog);
 blogRoute.get("/blogs", getAllBlog);

@@ -5,18 +5,14 @@ const User = require("../schemas/user");
 exports.addComment = async (req, res) => {
   try {
     const { blogId, content } = req.body;
-    // const blog = await Blog.findById(blogId);
-    const newComment = new Comment({
-      userId: req.session.userId,
-      content: content,
-    });
-    console.log(newComment);
-    const newComment1 = await newComment.save();
     await Blog.updateOne(
       { _id: blogId },
-      { $push: { comments: newComment1._id } }
+      { $push: { comments: content } } // Push the content directly to the comments array
     );
-    res.status(200).send("success");
+
+    const blog = await Blog.findById(blogId);
+    const addedComment = blog.comments[blog.comments.length - 1]; // Get the last comment added
+    res.status(200).send(addedComment);
   } catch (e) {
     return res.status(400).send({ msg: e.message });
   }
